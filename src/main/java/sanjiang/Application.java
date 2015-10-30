@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration//配置控制
 @ComponentScan//组件扫描
 @EnableAutoConfiguration//启用自动配置
+//@SpringBootApplication
 public class Application {
     //启动Spring Boot项目的唯一入口
     public static void main(String[] args) {
