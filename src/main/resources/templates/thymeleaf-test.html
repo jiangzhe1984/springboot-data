@@ -1,0 +1,86 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Messages : View</title>
+    <script th:src="@{/js/jquery.min.js}"></script>
+</head>
+<body>
+<table>
+               <thead>
+               <tr>
+                     <th>firstName</th>
+                      <th>lastName</th>
+                   <th>age</th>
+                  </tr>
+         </thead>
+             <tbody th:remove="all-but-first" id="tbody">
+               <tr th:each="user : ${users}">
+                       <td th:text="${user.firstName}"></td>
+                      <td th:text="${user.lastName}"></td>
+                   <td th:text="${user.age}"></td>
+                   </tr>
+
+            </tbody>
+           </table>
+<form action="#" th:action="@{/user/save}"  method="post" id="saveForm">
+    fristName : <input type="text" name="firstName"/>
+    lastName : <input type="text" name="lastName"/>
+    age : <input type="text" name="age"/>
+    <input type="button" value="toSave" onclick="toSave()"/>
+
+</form>
+
+
+<script>
+
+    function toSave(){
+
+        var $form = $('#saveForm');
+
+        $.ajax( {
+            type : 'post',
+            data : $form.serializeArray(),
+            url : $form.attr("action"),
+            dataType : 'json',
+            cache: false,
+            success : function(data) {
+
+                if(data.state == "success"){
+
+                    var tables = "";
+
+                    $(data.rows).each(function(i,val) {
+                        tables += "<tr>";
+                        tables += "<td>";
+                        tables += val.firstName;
+                        tables += "</td>";
+                        tables += "<td>";
+                        tables += val.lastName;
+                        tables += "</td>";
+                        tables += "<td>";
+                        tables += val.age;
+                        tables += "</td>";
+                        tables == "</tr>";
+
+                        $('input[name="firstName"]').val("");
+                        $('input[name="lastName"]').val("");
+                        $('input[name="age"]').val("");
+
+                    });
+
+                    $("#tbody").html(tables);
+                }else{
+                    alert("操作失败");
+                }
+
+            },
+            error : function() {
+                alert("error");
+            }
+        });
+    }
+
+
+</script>
+
+</body>
+</html>

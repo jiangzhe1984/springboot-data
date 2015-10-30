@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/src/main/java/sanjiang/controller/UserController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sanjiang/model/NativeQueryModel.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sanjiang/model/SearchCoditionModel.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sanjiang/repository/UserRepository.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sanjiang/service/UserService.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
